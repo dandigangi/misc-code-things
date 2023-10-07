@@ -32,8 +32,8 @@ There is multiple cases that would break this and require updates. Numbers highe
 
 ---
 
-Use Case: Replace NextJS pretty blog post title to a valid MD file name
+**Use Case**: Replace NextJS pretty blog post title to a valid MD file name
 
-I'll add more details later but here is the expression and manually change last few details
+I'll add more details later but here is the expression and manually changed last few details. Could have typed it out but on a roll writing regex this morning.
 
 `([a-zA-Z()+]*) `
