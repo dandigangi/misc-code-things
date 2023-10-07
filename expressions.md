@@ -28,4 +28,4 @@ Detailed explanation on [Regex101](https://regex101.com/r/RCkcPI/1)
 
 **Break the Solution**
 
-There is multiple cases that would break this and require updates. Numbers higher than 9, new characters other than dash, or the JSON is properly formatted vs minified introducing various whitespace and line breaks are some examples. But! We will adjust when that happens vs pre-optimizing a problem that isn't there so we can finish this and move on with our lives.
+There is multiple cases that would break this and require updates. Numbers higher than 9, new characters other than dash, or the JSON is properly formatted vs minified introducing various whitespace and line breaks are some examples. But! We will adjust when that happens vs pre-optimizing a problem that isn't there so we can finish this and move on with our lives. Whitespace/breaks in particular cna be very troublesome but in a case like that we could take our input string (assuming it's valid) and minify it ourselves. Work smarter, not harder.
