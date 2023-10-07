@@ -25,3 +25,7 @@ Match on double quote each side `"({someKeyVal})"`, capture the key matches for 
 Continued matching on string for `:`, `0-9`, and optional comma `,`. The comma as optional is a trick way in valid JSON that there is no comma at the end. Captured as `$2`.
 
 Detailed explanation on [Regex101](https://regex101.com/r/RCkcPI/1)
+
+**Break the Solution**
+
+There is multiple cases that would break this and require updates. Numbers higher than 9, new characters other than dash, or the JSON is properly formatted vs minified introducing various whitespace and line breaks.
