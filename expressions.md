@@ -1,6 +1,6 @@
 # Expressions
 
-Take NextJS generated blog tag list (`/app/tag-data.json`) and turn into `csv` to import into G-Sheets. Adding a tab with all tags so I can reference it in future writing easily.
+**Use Case**: Take NextJS generated blog tag list (`/app/tag-data.json`) and turn into `csv` to import into G-Sheets. Adding a tab with all tags so I can reference it in future writing easily.
 
 **Full Input String**
 
@@ -29,3 +29,11 @@ Detailed explanation on [Regex101](https://regex101.com/r/RCkcPI/1)
 **Break the Solution**
 
 There is multiple cases that would break this and require updates. Numbers higher than 9, new characters other than dash, or the JSON is properly formatted vs minified introducing various whitespace and line breaks are some examples. But! We will adjust when that happens vs pre-optimizing a problem that isn't there so we can finish this and move on with our lives. Whitespace/breaks in particular can be very troublesome but in a case like that we could take our input string (assuming it's valid) and minify it ourselves. Work smarter, not harder.
+
+---
+
+Use Case: Replace NextJS pretty blog post title to a valid MD file name
+
+I'll add more details later but here is the expression and manually change last few details
+
+`([a-zA-Z()+]*) `
