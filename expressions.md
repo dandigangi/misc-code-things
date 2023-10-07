@@ -1,6 +1,6 @@
 # Expressions
 
-Take NextJS generated `json tag list (`/app/tag-data.json`) and turn into `csv` to import into G-Sheets. Adding a tab with all my blog tags so I can reference it in future writing easily.
+Take NextJS generated `json` tag list (`/app/tag-data.json`) and turn into `csv` to import into G-Sheets. Adding a tab with all my blog tags so I can reference it in future writing easily.
 
 **Full Input String**
 
@@ -8,7 +8,7 @@ Take NextJS generated `json tag list (`/app/tag-data.json`) and turn into `csv` 
 
 **Short Test String**
 
-Less matches for min number of match cases
+Less matches for min number of match cases. Cases are lowercase as alpha string, alpha with dash, and either of those with no comma after
 
 `"leadership":2,"individual-contributor":1,"inclusion":1`
 
@@ -26,4 +26,4 @@ Match on double quote each side `"{someKeyVal}"`, capture the match for any stri
 
 Continued matching on string for `:`, `0-9`, and optional comma `,`. The comma as optional is a trick way in valid JSON that there is no comma at the end. Captured as `$2`.
 
-Full Explanation on [Regex101](https://regex101.com/r/lyf0Ob/2)
+Detailed explanation on [Regex101](https://regex101.com/r/RCkcPI/1)
