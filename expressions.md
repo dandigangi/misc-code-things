@@ -36,4 +36,4 @@ There is multiple cases that would break this and require updates. Numbers highe
 
 I'll add more details later but here is the expression and manually changed last few details. Could have typed it out but on a roll writing regex this morning.
 
-`([a-zA-Z()+]*) `
+`([a-zA-Z()+]*) ` w/ case insensitive flag and lowercased using `\L$1-`
