@@ -29,3 +29,29 @@ Detailed explanation on [Regex101](https://regex101.com/r/RCkcPI/1)
 **Break the Solution**
 
 There is multiple cases that would break this and require updates. Numbers higher than 9, new characters other than dash, or the JSON is properly formatted vs minified introducing various whitespace and line breaks are some examples. But! We will adjust when that happens vs pre-optimizing a problem that isn't there so we can finish this and move on with our lives. Whitespace/breaks in particular can be very troublesome but in a case like that we could take our input string (assuming it's valid) and minify it ourselves. Work smarter, not harder.
+
+**Update**:
+In Next they have a nifty JSON output they use for tags and their counts. Ended up changing over to changing the function that creates it to generate a CSV with the expected format that I can import to G-sheets.
+
+```
+function createTagCount(allBlogs) {
+  const tagCount: Record<string, number> = {}
+  let tagKeys = ''
+
+  allBlogs.forEach((file) => {
+    if (file.tags && (!isProduction || file.draft !== true)) {
+      file.tags.forEach((tag) => {
+        const formattedTag = GithubSlugger.slug(tag)
+        if (formattedTag in tagCount) {
+          tagCount[formattedTag] += 1
+          tagKeys += `${formattedTag},`
+        } else {
+          tagCount[formattedTag] = 1
+        }
+      })
+    }
+  })
+  writeFileSync('./app/tag-data.csv', tagKeys.slice(0, -1))
+  writeFileSync('./app/tag-data.json', JSON.stringify(tagCount))
+}
+```
