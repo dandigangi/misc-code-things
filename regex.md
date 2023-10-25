@@ -36,7 +36,7 @@ In Next they have a nifty JSON output they use for tags and their counts. Ended 
 ```
 function createTagCount(allBlogs) {
   const tagCount: Record<string, number> = {}
-  let tagKeys = ''
+  let tagKeys = '' // String to concat into
 
   allBlogs.forEach((file) => {
     if (file.tags && (!isProduction || file.draft !== true)) {
@@ -44,14 +44,16 @@ function createTagCount(allBlogs) {
         const formattedTag = GithubSlugger.slug(tag)
         if (formattedTag in tagCount) {
           tagCount[formattedTag] += 1
-          tagKeys += `${formattedTag},`
+          tagKeys += `${formattedTag},` // Add each tag
         } else {
           tagCount[formattedTag] = 1
         }
       })
     }
   })
-  writeFileSync('./app/tag-data.csv', tagKeys.slice(0, -1))
+  writeFileSync('./app/tag-data.csv', tagKeys.slice(0, -1)) // Write the file and kill last comma
   writeFileSync('./app/tag-data.json', JSON.stringify(tagCount))
 }
 ```
+
+Please don't be upset too much that I am mixing vanilla JS and TS. I ended up just logging this to CLI and copy/paste out.
