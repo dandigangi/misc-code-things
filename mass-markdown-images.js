@@ -1,5 +1,5 @@
 // Photoshop batch script create file names; easy output here to copy/paste into blog post w/ template literal
-const fs = require('fs');
+// const fs = require('fs');
 
 const max = 73;
 let strs = '';
