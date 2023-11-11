@@ -22,19 +22,19 @@
 </div>
 
 <script>
-  const req = new Promise((resolve, reject) => {
+  const badData = new Promise((resolve, reject) => {
     resolve(['bmw:x6,m3,m4;ferrari:458,Enzo,scuDeria'])
   });
 
-  req.then((resp) => {
-    console.log(resp);
+  badData.then((resp) => {
+  console.log(resp);
     let myCars = resp[0]
     myCars = myCars.split(';')
 
     bmwCars = myCars[0].split(':')
-    document.getElementById('bmw').append(bmwCars[1].toUpperCase())
+      document.getElementById('bmw').append(bmwCars[1].toUpperCase())
     ferrariCars = myCars[1].split(':')
-    document.getElementById('ferrari').append(ferrariCars[1].toUpperCase())
-  });
+     document.getElementById('ferrari').append(ferrariCars[1].toUpperCase())
+});
 
 </script>
