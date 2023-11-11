@@ -1,0 +1,64 @@
+<!--
+  See the ./problem.html file for the context and requirements
+
+  Solution #2
+-->
+
+<div class="page">
+  <h1>My Car Collection</h1>
+  <p class="bmw"></p>
+  <p class="ferrari"></p>
+</div>
+
+<script>
+  // Utils
+  //
+  // Always toLowerCase to ensure no other letters are in unexpected casing.
+  const capitalize = (str) => str.toLowerCase().charAt(0).toUpperCase() + str.slice(1);
+
+  // Data
+  //
+  // Even though this is a function, resolve must be called directly vs returned otherwise it returns the promise. It is still unresolved but already being returned (aka it's not done yet).
+  // Using this data/Promise per requirements but root problem is our API/persistence layer data needs to to be remodeled working. This could be a real world example where it may not be possible if say a 3rd party was sending us data where we don't have a choice.
+  // Our code (as developed below) can turn the data string into something useful but better places (in order) to fix would be 3rd Party > Ingestion/ETL > API > Client.
+  const req = new Promise((resolve, reject) => {
+    resolve(['bmw:x6,m3,m4;ferrari:458,Enzo,scuDeria'])
+  });
+
+  // Better solution showing off some other concepts in JS but also data modeling. Not perfect by any means.
+  // Contains the two arrays per assignment requirements but an improved overall data model.
+  // Outputs an array of location objects containing continents and countries.
+  // Assume in the real world this could be a much larger response.
+  // Reduce brings down total ops to simplify, improve perf, and enable future scale.
+  const updateMyCarCollection = async () => {
+    const data = await req;
+    console.log('Response Data: ', data);
+
+    let myCarCollection = data[0].split(';');
+
+    myCarCollection = myCarCollection.reduce((acc, curr, index) => {
+      // Get our data out of the Regex Iterable from the matchAll return so we can access our capture group.
+      let manufacturer = [...curr.matchAll(/(?<manufacturer>[a-z]+):/gi)];
+      manufacturer = manufacturer[0].groups.manufacturer;
+
+      // Rip out the manufacturer since were done with it.
+      let carModels = curr.replace(/[a-z]+:/, '').split(',');
+      capitalizedCarModels = carModels.map((country) => capitalize(country))
+
+      return [...acc, {
+        manufacturer: capitalize(manufacturer),
+        carModels: capitalizedCarModels,
+      }];
+    }, []);
+
+    console.log('New/Clean Data Model: ', myCarCollection)
+
+    // Keys to each manufacturer based on provided CSS classes to know where to insert.
+    // Key is lowercase but display is capitalized.
+    myCarCollection.forEach(({ manufacturer, carModels }) => {
+      document.getElementsByClassName(manufacturer.toLowerCase())[0].innerHTML = `${manufacturer}: ${carModels.join(', ')}`;
+    })
+  }
+
+  updateMyCarCollection();
+</script>

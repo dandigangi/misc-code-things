@@ -1,0 +1,28 @@
+<!--
+  Test I received recently for an interview. Hiding some specifics so their interview isn't public. It's basic but made sense for this particular side thing I may do. Far from the best or efficient but getting the gears turning again to shake the rust off. Haven't been coding as actively as a manager the past 6 years. Solution file contains a simple solution and the one I submitted which is more complex. You can open the file directly in the browser as you code to test.
+
+  Assignment
+
+  There is one HTML file that containing 2 <p> tags and some JS. You need to access your car collection and display it on the page.
+    1) Our data has a bug and not currently available to use for the next requirements. Fix and make it available to log.
+    2) The data contains something similar to JSON but is returned as a string. Improve the data model (minimum) to separate the car models and their manufacturing into 2 arrays.
+    3) Each rendered string to the page needs the first letter capitalized.
+    4) Each manufacturer and their corresponding model should be injected into their respective <p> tags.
+    5) Leave comments on code that may not be clear or is worth explaining your reasoning for it.
+
+  The requirements are the baseline but there is ample opportunities to expand on your solution or point to how our actual system could be improved.
+-->
+
+<div class="page">
+  <h1>My Car Collection</h1>
+  <p class="bmw"></p>
+  <p class="ferrari"></p>
+</div>
+
+<script>
+  const myCars = new Promise((resolve, reject) => {
+    return resolve(['bmw:x6,m3,m4;ferrari:458,Enzo,scuDeria'])
+  });
+
+  console.log(myCars);
+</script>

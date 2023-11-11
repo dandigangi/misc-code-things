@@ -1,0 +1,40 @@
+<!--
+  See the ./problem.html file for the context and requirements.
+
+  Solution #1
+
+  Notes
+  This solution was written specifically for this Github repo. #2 is what I built and submitted. Notice that I altered their HTML to make it work for me vs using my JS code. If you do this for coding interviews it can be a potential insta-fail.
+
+  If you look at solution 2 it has a lot more code and things going on. Imagine in the real world where that string of data is extensively longer. The various splits and other array/string methods could easily suffer performance problems.
+
+  There is almost more comments describing steps that may not be clear via code or the rationale behind why something was done. Self-documenting code being 100% of your documentation is just not a thing no matter what anyone says.
+
+  You'll also notice in solution 2 that I do things like move utility functions towards the top as if they imported in say something like React and variable declarations are at the top of the function/closure they reside within. Or, logs provide more useful context information and the way I space my code for readability. Readability is important! Look at the variable declarations, spacing, and alignment.
+
+  Last I use older version of JS features like thens and for loops. These are still used and fine but there is value in newer features beyond that. One example is that async/await over then chaining helps us get away from things like callback hell.
+-->
+
+<div class="page">
+  <h1>My Car Collection</h1>
+  <p id="bmw">BMW:</p>
+  <p id="ferrari">Ferrari:</p>
+</div>
+
+<script>
+  const req = new Promise((resolve, reject) => {
+    resolve(['bmw:x6,m3,m4;ferrari:458,Enzo,scuDeria'])
+  });
+
+  req.then((resp) => {
+    console.log(resp);
+    let myCars = resp[0]
+    myCars = myCars.split(';')
+
+    bmwCars = myCars[0].split(':')
+    document.getElementById('bmw').append(bmwCars[1].toUpperCase())
+    ferrariCars = myCars[1].split(':')
+    document.getElementById('ferrari').append(ferrariCars[1].toUpperCase())
+  });
+
+</script>
