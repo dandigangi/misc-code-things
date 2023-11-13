@@ -43,7 +43,7 @@
 
       // Rip out the manufacturer since were done with it.
       let carModels = curr.replace(/[a-z]+:/, '').split(',');
-      capitalizedCarModels = carModels.map((country) => capitalize(country))
+      capitalizedCarModels = carModels.map((car) => capitalize(car))
 
       return [...acc, {
         manufacturer: capitalize(manufacturer),
