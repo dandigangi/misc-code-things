@@ -1,5 +1,5 @@
 //
-// Learning the Basics of Caching + Node Example
+// Learn Caching Basics + Node Example
 // Concept: Caching is for storing data in a way that can be accessed quickly for future requests.
 //
 // Imagine a page that shows a list of cars a user owns. It's a popular page and used frequently.
@@ -38,21 +38,21 @@ const cache = {
 
 // Gimme some cars plz!
 const getCars = async function () {
-  // Make sure the cache and some data exists
+  // Make sure the cache and some data exists.
   if (cache && Object.keys(cache)) {
     const { totalCarsOwned, cars } = cache.myCars;
     const carsToFetch = [];
 
     // Look for what IDs are missing because we have some cars + know how many we own.
+    // Start at 1 because there will never be a zero ID (hopefully).
     for (let i = 1; i <= totalCarsOwned; i++) {
+      // Check the current car object keys for a valid ID
       if (!cars.hasOwnProperty(i)) {
         console.log('Missing car ID:', i);
         carsToFetch.push(i);
       }
     }
 
-    // Some API that can fetch all car data with /api/cars.
-    // Can also pass search parameter with IDs to get specific cars.
     console.log(
       'API call to get the missing car data:',
       `/api/cars?id=${carsToFetch.join()}`
