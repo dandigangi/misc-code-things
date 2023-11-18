@@ -1,14 +1,14 @@
 //
-// Simple Node Caching Example
+// Learning the Basics of Caching + Node Example
 // Concept: Caching is for storing data in a way that can be accessed quickly for future requests.
 //
 // Imagine a page that shows a list of cars a user owns. It's a popular page and used frequently.
-// We learned about our product over time that most users don't buy cars often.
+// We learned about our product over time that most users doesn't buy cars often.
 // But they do visit this page a lot! There is an opportunity here.
 //
-// The example creates a cache like solution that can save us requests, time, and money using in-application memory.
-// Caches are typically modeled as key/stores. (See line 31-35 for an idea + resources section.)
-// The goal is to understand caching as a concept. Don't get caught up in the Javascript implementation.
+// The example creates a cache-like solution that can save us requests, time, and money using in-application memory.
+// Caches are typically modeled as key/value stores. (See line 32-36 for an idea.)
+// The goal here is to understand caching as a basic concept. Don't get caught up in the Javascript implementation.
 // You can run this in Node and useful logging statements will be sent to your terminal.
 //
 // Make sure to check out the real world side lesson at the bottom below the code.
@@ -21,13 +21,12 @@
 //
 
 //
-
 // Example
-// Remember - this is stored inside the application instance's memory.
+// Remember - This is stored inside the application instance's memory. It will matter if you read the side lesson at the bottom.
+//
 const cache = {
   myCars: {
-    userId: 1,
-    totalOwned: 6,
+    totalCarsOwned: 6,
     // We're missing 3 of our cars; IDs: 2, 5, 6
     cars: {
       1: { id: 1, make: 'BMW' },
@@ -41,11 +40,11 @@ const cache = {
 const getCars = async function () {
   // Make sure the cache and some data exists
   if (cache && Object.keys(cache)) {
-    const { totalOwned, cars } = cache.myCars;
+    const { totalCarsOwned, cars } = cache.myCars;
     const carsToFetch = [];
 
     // Look for what IDs are missing because we have some cars + know how many we own.
-    for (let i = 1; i <= totalOwned; i++) {
+    for (let i = 1; i <= totalCarsOwned; i++) {
       if (!cars.hasOwnProperty(i)) {
         console.log('Missing car ID:', i);
         carsToFetch.push(i);
