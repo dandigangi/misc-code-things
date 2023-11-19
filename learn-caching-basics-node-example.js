@@ -90,12 +90,12 @@ getCars();
 // Side lesson:
 // In the real world there is going to be multiple instances of your application.
 // This creates a problem with the example above. The data below is tied specifically to this user/instance.
-// It's known as state or stateful data. We're using in-application memory vs a true cache. This is a cache like solution.
-// Imagine a situation where the servers direct traffic and user A ends up using instance B of our application.
-// No data! Or, what they do something where the data/operations across the instances conflict with each other? Problems!
+// It's known as state or stateful data. We're using in-application memory vs a separated true cache. This is a cache like solution.
+// Imagine a situation where the servers direct User A to Instance 2 of our application but they were on Instance 1 originally.
+// We run our code and... no cache data! Or, what they do something where the data in Instance 1 vs Instance 2 conflict?
 //
 // That's where you see tools like Redis or Memcached used which are dedicated in-memory stores.
-// Any instance (one or many) can talk to the cache and look at and derive useful data.
+// Any instance (one or many) can talk to the cache and check/derive useful data.
 //
 // Redis: https://redis.io
 // Memcached: https://memcached.org
