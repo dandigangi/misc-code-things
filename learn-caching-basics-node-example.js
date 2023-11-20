@@ -7,7 +7,7 @@
 // But they do visit this page a lot! There is an opportunity here.
 //
 // The example creates a cache-like solution that can save us requests, time, and money using in-application memory.
-// Caches are typically modeled as key/value stores. (See line 32-36 for an idea.)
+// Caches are typically modeled as key/value stores. (See line 31-35 for an idea.)
 // The goal here is to understand caching as a basic concept. Don't get caught up in the Javascript implementation.
 // You can run this in Node and useful logging statements will be sent to your terminal.
 //
