@@ -11,7 +11,7 @@ if (process.argv.find((arg) => arg === '--dev_mode' || arg === '-d')) DEV_MODE =
 // Then do stuff like this. You'll find this is a lot of libs.
 // Wrapped in an IFEE also to get the game going vs calling a fx.
 // Common in games to have a do/while type of loop since games are loops, respectively.
-// I've rarely you while loops across my career so this is a less likely thing you'll see in my code.
+// I've rarely use while loops across my career so this is a less likely thing you'll see in my code.
 const game = (async function () {
   console.clear()
   console.log(prompts.intro)
