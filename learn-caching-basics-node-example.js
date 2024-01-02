@@ -72,6 +72,7 @@ const getCars = async function () {
     };
 
     // Combine our cache data and what we fetched.
+    // Maybe some additional checks if its empty but not really needed since the spread will just not doing anything.
     const allMyCars = {
       ...cars,
       ...fakeFetchedCarData,
