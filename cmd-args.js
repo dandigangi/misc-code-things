@@ -1,6 +1,7 @@
-// Nothing crazy but simplee way I'll do a DEV_MODE for debugging purposes.
-// Building a game from one of my students projects called Zork so I through this in there.
+// Nothing crazy but simple way I'll do a DEV_MODE for debugging purposes.
+// Building a game from one of my students projects called Zork so I threw this in there.
 // Way better and more effective ways to do this but it serves its purpose.
+// More rigorous checks and protection would be needed if dev'ed further or handed out to others.
 
 // --- START DEV DEBUGGING ---
 let DEV_MODE = false
