@@ -1,0 +1,72 @@
+<style>
+  button {
+    font-size: 28px;
+    margin-right: 15px;
+  }
+</style>
+
+<!-- The idea behind this example is applying something in bulk, say multiple buttons needing click events -->
+<!-- This would be instead of manually apply per element, code needs less frequent changes and can adopt any number of added elements -->
+<!-- Run one example at a time by setting runThisExample to true on the want you want to run and false to turn off the other -->
+<!-- Example 1 -->
+<div class="buttons">
+  <h1>Events Example 1</h1>
+  <button class="ex1-btn-1">Do Things</button>
+  <button class="ex1-btn-2">Do Other Stuff</button>
+  <button class="ex1-btn-3">Do Stuff and Things</button>
+</div>
+
+<script>
+  const runThisExample = true
+
+  // Manual way of adding event listeners per button
+  // This is not scalable, imagine of someone had you add 30 buttons
+  // You would want a way to apply the listener to all of them vs one-by-one
+  if (runThisExample) {
+    $ex1Button = document.querySelector('.ex1-btn-1')
+    $ex2Button = document.querySelector('.ex1-btn-2')
+    $ex3Button = document.querySelector('.ex1-btn-3')
+
+    $ex1Button.addEventListener('click', () => {
+      console.log('clicked btn 1')
+    })
+
+    $ex2Button.addEventListener('click', () => {
+      console.log('clicked btn 2')
+    })
+
+    $ex3Button.addEventListener('click', () => {
+      console.log('clicked btn 3')
+    })
+  }
+</script>
+
+<!-------------------------->
+
+<div class="buttons">
+  <h1>Events Example 2</h1>
+  <button class="button ex2-btn-1">Do Things</button>
+  <button class="button ex2-btn-2">Do Other Stuff</button>
+  <button class="button ex2-btn-3">Do Stuff and Things</button>
+  <button class="button ex2-btn-4">Do Other Stuff</button>
+  <button class="button ex2-btn-5">Do Stuff and Things</button>
+</div>
+
+<script>
+  const runThisExample = false
+
+  // This example uses the power of a multi-selector to get an array-like object with all of the buttons on the page
+  // From there we can loop over it and apply a listener to each
+  // If you removed or added any number of buttons, you would not need to update this code to account for that
+  if (runThisExample) {
+    $buttons = document.querySelectorAll('.button')
+
+    $buttons.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        console.log(`clicked button ${index + 1}`)
+      })
+    })
+  }
+</script>
+
+<!-------------------------->
