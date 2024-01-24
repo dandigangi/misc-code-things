@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Login - Upright Education</title>
+    <link href="./favicon.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="./styles.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="page">
+      <main class="wrapper">
+        <div class="container">
+          <div class="header">
+            <img
+              alt="Upright Education logo"
+              class="logo"
+              src="./upright-logo.png"
+            />
+          </div>
+          <hr />
+          <form class="form login-form">
+            <div class="field-row email">
+              <label>Email</label>
+              <input
+                class="field-email"
+                type="email"
+                placeholder="you@email.com"
+                required
+              />
+            </div>
+            <div class="field-row pass pass-with-reveal">
+              <label>Password</label>
+              <div class="container">
+                <input
+                  class="field-password"
+                  type="password"
+                  placeholder="password123"
+                  required
+                />
+                <button class="btn-reveal-pass">
+                  <img
+                    alt="Eyeball image button to reveal password"
+                    src="eye-open.svg"
+                  />
+                </button>
+              </div>
+            </div>
+            <div class="field-row submit">
+              <button type="submit" class="btn-submit">Login</button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+    <script>
+      const loginForm = document.querySelector('.login-form')
+      const formFieldPass = document.querySelector('.field-password')
+      const btnRevealPass = document.querySelector('.btn-reveal-pass')
+      let isPassRevealed = false
+
+      loginForm.addEventListener('submit', (evt) => evt.preventDefault())
+
+      btnRevealPass.addEventListener('click', () => {
+        // Flip the bool
+        isPassRevealed = !isPassRevealed
+
+        // Toggle the types
+        if (isPassRevealed) {
+          formFieldPass.type = 'text'
+          btnRevealPass.children[0].src = 'eye-closed.svg'
+        } else {
+          formFieldPass.type = 'password'
+          btnRevealPass.children[0].src = 'eye-open.svg'
+        }
+      })
+    </script>
+  </body>
+</html>

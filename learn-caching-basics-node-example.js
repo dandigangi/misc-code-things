@@ -46,7 +46,7 @@ const getCars = async function () {
     // Look for what IDs are missing because we have some cars + know how many we own.
     // Start at 1 because there will never be a zero ID (hopefully).
     for (let i = 1; i <= totalCarsOwned; i++) {
-      // Check the cars object for a valid car ID that exists.
+      // Check the cars object for a valid car ID that exists. If not, we need to fetch it.
       if (!cars.hasOwnProperty(i)) {
         console.log('Missing car ID:', i);
         carsToFetch.push(i);
