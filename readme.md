@@ -4,4 +4,4 @@ Code snippets, minor projects, interview problems, and lessons for the community
 
 **NOTE**: Some of the examples were made for the purposes of teaching at a software engineering bootcamp. Some code/explanations may be more simplified or naive in nature. This repo is not a full representation of my skill level.
 
-[Website dandigangi.com](https://dandigangi.com) | [Twitter - @dandigangi](https://twitter.com/dandigangi)
+[Website](https://dandigangi.com) | [LinkedIn @dandigangi](https://linkedin.com/dandigangi) | [Twitter @dandigangi](https://twitter.com/dandigangi)
