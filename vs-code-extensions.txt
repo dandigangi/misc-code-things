@@ -1,0 +1,51 @@
+Auto Close Tag
+Auto Rename Tag
+Aws Toolkit
+Better Comments
+Code Spell Checker
+Color Highlight
+Colorful Comments
+Docker
+dotenv
+Edge Devtools
+ES Lint
+ES7 React JS Snippets
+Firefox Debug
+Git Graph
+Gitlens
+Go
+HTML CSS
+Html CSS Class Completion
+Icons
+Indent Rainbow
+Kotlin
+Kubernetes Tools
+Language Babel
+Liveshare
+Markdown All in One
+Material Icon Theme
+Material Theme
+MDX
+Mongodb
+Npm Intellisense
+Path Intellisense
+Pdf
+Prettier
+Pull Request Github
+Pylance
+Python
+Rainbow Csv
+Rose Pine
+Sort Lines
+Svg
+Tailwind CSS
+Terraform
+Theme Dracula
+Theme OneDark
+TODO Highlight
+TODO Tree
+Tokyo Night
+Turbo Console Log
+Typescript Next
+Webpack
+YAML
