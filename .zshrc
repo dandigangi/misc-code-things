@@ -1,4 +1,5 @@
 # Nothing special Zsh config. Highly advise the plugins.
+# Make sure to open a new instance of shells or do source {path/config} to enable changes.
 export PATH=$HOME/.yarn/bin:/bin:/usr/local/bin:$PATH
 
 export ZSH="$HOME/.oh-my-zsh"
