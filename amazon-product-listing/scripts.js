@@ -20,21 +20,20 @@ const cartState = {
   products: [],
 }
 
-// Set total products but didn't declare as var since it runs once
+// One time setup for setting product count and the current year in footer.
 document.querySelector('.total-products-count').textContent = totalProducts
-
-// Set footer to current year
 document.querySelector('.current-year').textContent = new Date().getFullYear()
 
 // Functionality
 // Add IDs to cart products state
 function addCartProduct(id) {
   if (!cartState.products.includes(id)) {
-    console.log(`product ${id} added to cart`)
     cartState.products.push(id)
 
     // Moved from the click event handler allowing a singular function to manage all the needed changes.
     updateCartTotal()
+
+    // Contrary to the above comment we could do this more effectively as singular function handling each need.
     handleBtnState('add-to-cart', id, true)
     handleBtnState('remove-from-cart', id, false)
     handleNotificationDisplay('success', 'Item added to cart')
@@ -43,11 +42,15 @@ function addCartProduct(id) {
   }
 }
 
+// Remove product by ID from cart state
 function removeCartProduct(id) {
   if (cartState.products.includes(id)) {
+    // Find the position of the product ID so we can cut it out of state
     const position = cartState.products.indexOf(id)
+
+    // Note when designing state that it is typically immutable. Splice mutates the original array.
+    // Array.slice() would be better here producing a new array and replacing state with it.
     cartState.products.splice(0, 1)
-    console.log('removing product from cart')
 
     updateCartTotal(true)
     handleBtnState('add-to-cart', id, false)
@@ -60,36 +63,43 @@ function removeCartProduct(id) {
 
 // This passed argument uses a default value of false.
 // Ensures even if you don't pass anything it doesn't try and change things we don't want it to.
-// The "remove" argument could be named better.
-function updateCartTotal(remove = false) {
-  if (!remove) {
+function updateCartTotal(removeProduct = false) {
+  if (!removeProduct) {
+    // Increment the total
     cartState.total++
 
     // Ensure max constant is enforced preventing additional adds.
     if (cartState.total <= maxCartTotal) {
       $cartTotal.textContent = cartState.total
-      console.log('adding to cart total')
     } else {
       console.log('max cart total reached')
     }
   } else {
+    // Decrement the total
     cartState.total--
     $cartTotal.textContent = cartState.total
-    console.log('removing from cart total')
   }
 }
 
+// handle{FunctionName} is a common naming pattern
 function handleBtnState(btnType, id, disableState) {
+  // Dynamic query using template literals so we can find the specific button.
+  // Doc: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
   document.querySelector(`.${btnType}[data-product-id="${id}"]`).disabled =
     disableState
 }
 
-function handleNotificationDisplay(type, message, close = false) {
-  if (close) {
+// Show/hide notifications including the close button
+function handleNotificationDisplay(type, message, hideNotification = false) {
+  if (hideNotification) {
     $notificationBar.style.display = 'none'
+
+    // If statements are useful but there are times when you want to break the control flow from executing additional code.
+    // We aren't actually returning anything here but it won't execute any more code if the condition is met.
     return
   }
 
+  // Various things you can do to an element (change text, update classes, inline CSS styles, etc.)
   $notificationMessage.textContent = message
   $notificationBar.className = `notification-bar ${type}`
   $notificationBar.style.display = 'block'
@@ -99,18 +109,18 @@ function handleNotificationDisplay(type, message, close = false) {
 // Apply click event across all buttons vs one at a time.
 $addToCartBtns.forEach((btn) => {
   btn.addEventListener('click', () => {
-    console.log('event - add to cart')
+    // Pass the product ID data attribute through as argument.
     addCartProduct(btn.dataset.productId)
   })
 })
 
 $removeCartBtns.forEach((btn) => {
   btn.addEventListener('click', () => {
-    console.log('event - remove from cart')
     removeCartProduct(btn.dataset.productId)
   })
 })
 
+// Another way to access elements within another vs an additional declaration at the top of file.
 $notificationBar.children[1].addEventListener('click', () => {
-  handleNotificationDisplay(null, null, close)
+  handleNotificationDisplay(null, null, true)
 })
