@@ -1,0 +1,293 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #eeeeee;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+a:visited {
+  color: inherit;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.2;
+}
+
+/* Re-usable */
+.btn,
+.btn-link {
+  cursor: pointer;
+}
+
+.btn {
+  border-radius: 5px;
+  border: 0;
+  color: #000000;
+  font-size: 16px;
+  padding: 6px 24px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn.btn-primary {
+  background-color: #ffec99;
+}
+
+.btn.btn-primary:hover {
+  background-color: #e2d38f;
+}
+
+.btn.btn-primary:active {
+  background-color: #ab9d5e;
+}
+
+.btn.btn-secondary {
+  background-color: #b1f2bc;
+}
+.btn.btn-secondary:hover {
+  background-color: #9de5a9;
+}
+.btn.btn-secondary:active {
+  background-color: #95d7a0;
+}
+
+.btn-link {
+  background-color: transparent;
+  border: 0;
+  color: #3c3c3c;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.notification-bar {
+  border-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+  display: none;
+  margin-bottom: 25px;
+  padding: 10px 13px;
+  width: 100%;
+}
+
+.notification-bar.success {
+  background-color: #d0ffe1;
+  border-color: #9fe7ba;
+}
+
+.notification-bar.error {
+  background-color: #ffd0da;
+  border-color: #e89dae;
+}
+
+.notification-bar .close {
+  border: 0;
+  float: right;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 5px;
+  text-transform: uppercase;
+}
+
+.notification-bar.success .close {
+  color: #435048;
+  background-color: #9fe7ba;
+}
+
+.notification-bar.error .close {
+  color: #504345;
+  background-color: #e79f9f;
+}
+
+/* Page Specific */
+
+.container {
+  background-color: #ffffff;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 57px 43px;
+  width: 100%;
+}
+
+header.header {
+  margin-bottom: 28px;
+}
+
+.top {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.brand a {
+  color: #000000;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.navigation > a {
+  margin-left: 16px;
+}
+
+.navigation .shopping-cart {
+  color: #000000;
+}
+
+.navigation .shopping-cart:before {
+  background-image: url(assets/cart.svg);
+  background-position: center;
+  background-repeat: none;
+  background-size: 18px 18px;
+  content: '';
+  display: inline-block;
+  height: 18px;
+  margin-right: 4px;
+  position: relative;
+  top: 3px;
+  width: 18px;
+}
+
+.search input[type='text'] {
+  border-radius: 5px;
+  border: 1px solid #bababa;
+  display: block;
+  font-size: 16px;
+  padding: 10px 14px;
+  width: 100%;
+}
+
+.search input[type='text']:focus {
+  border: 2px solid #3b8147;
+  /* Note - this is bad for accessibility! You should never remove the outline. */
+  outline: none;
+}
+
+.content {
+  display: flex;
+}
+
+.products,
+.categories {
+  border: 1px solid #bababa;
+  padding: 36px 28px;
+}
+
+.categories {
+  flex-basis: 600px;
+  margin-right: 15px;
+}
+
+.categories > .header {
+  font-size: 18px;
+  padding-bottom: 3px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #d5d5d5;
+}
+
+.category-list {
+  font-size: 14px;
+}
+
+.category-list ul {
+  list-style: outside;
+  margin: 16px 0 0;
+  padding: 0;
+}
+
+.category-list li {
+  margin: 0 0 6px 13px;
+  padding-left: 4px;
+}
+
+.category-list a {
+  color: #000000;
+}
+
+.products {
+  margin-left: 15px;
+}
+
+.products > .header {
+  color: #1f18ff;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 29px;
+}
+
+.total-products {
+  text-transform: uppercase;
+}
+
+.product {
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.product:last-child {
+  margin-bottom: 0;
+}
+
+.product .header-wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.product .hero {
+  margin-right: 20px;
+}
+
+.product .name {
+  margin: 0;
+}
+
+.product .price {
+  font-style: italic;
+}
+
+.product .description {
+  margin-bottom: 20px;
+  padding-top: 15px;
+}
+
+.controls {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .categories {
+    margin-bottom: 28px;
+  }
+
+  .categories {
+    margin-right: 0;
+  }
+
+  .products {
+    margin-left: 0;
+  }
+}
+
+.footer {
+  padding: 40px 0 0;
+  text-align: center;
+}

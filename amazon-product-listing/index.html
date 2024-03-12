@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Amazon Product Listing</title>
+    <link rel="shortcut icon" type="image/png" href="assets/favicon.ico" />
+
+    <!-- Custom Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <!-- Adding modern, semantic elements (header, nav, main, section, etc.) -->
+        <header class="header">
+          <div class="top">
+            <div class="brand">
+              <a href="#">Amazon</a>
+            </div>
+            <nav class="navigation">
+              <a class="btn btn-primary" href="#">Home</a>
+              <a class="btn btn-primary" href="#">Sales</a>
+              <a class="btn btn-primary" href="#">Products</a>
+              <a class="shopping-cart" href="#"
+                >(<span class="cart-total">0</span>)</a
+              >
+            </nav>
+          </div>
+          <div class="search">
+            <form>
+              <input type="text" placeholder="Search" />
+            </form>
+          </div>
+        </header>
+        <main class="content">
+          <section class="categories">
+            <div class="header">Products</div>
+            <div class="category-list">
+              <button class="btn btn-secondary">Popular</button>
+              <ul>
+                <li><a href="#">Automotive</a></li>
+                <li><a href="#">Clothing & Accessories</a></li>
+                <li><a href="#">Digital</a></li>
+                <li><a href="#">Electronics</a></li>
+                <li><a href="#">Gaming</a></li>
+                <li><a class="active" href="#">Home & Garden</a></li>
+                <li><a href="#">Pets</a></li>
+              </ul>
+            </div>
+          </section>
+          <section class="products">
+            <div class="notification-bar">
+              <span class="message">Added to cart!</span>
+              <button class="btn close">Close</button>
+            </div>
+            <div class="header">
+              <div class="breadcrumbs">
+                Categories&nbsp;&nbsp;>&nbsp;&nbsp;
+                <a href="#">Home & Garden</a>
+              </div>
+              <div class="total-products">
+                <span class="total-products-count">0</span> Products
+              </div>
+            </div>
+            <div class="product-listings">
+              <div class="product">
+                <div class="hero">
+                  <img
+                    alt="Product Title Image"
+                    src="https://placehold.co/165x115"
+                  />
+                </div>
+                <div>
+                  <div class="header-wrapper">
+                    <h3 class="name">Product Name #1</h3>
+                    <div class="price">$35.04</div>
+                  </div>
+                  <div class="description">
+                    This is a description about this product that is listed on
+                    my fake Amazon site. It's pretty nice. You should buy it
+                    right meow. This is a description about this product that is
+                    listed on my fake Amazon site. It's pretty nice. You should
+                    buy it right meow.
+                  </div>
+                  <div class="controls">
+                    <button
+                      data-product-id="1"
+                      class="btn btn-primary add-to-cart"
+                    >
+                      Add to Cart
+                    </button>
+                    <button
+                      data-product-id="1"
+                      class="btn-link remove-from-cart"
+                      disabled
+                    >
+                      Remove [x]
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="product">
+                <div class="hero">
+                  <img
+                    alt="Product Title Image"
+                    src="https://placehold.co/165x115"
+                  />
+                </div>
+                <div>
+                  <div class="header-wrapper">
+                    <h3 class="name">Product Name #2</h3>
+                    <div class="price">$35.04</div>
+                  </div>
+                  <div class="description">
+                    This is a description about this product that is listed on
+                    my fake Amazon site. It's pretty nice. You should buy it
+                    right meow. This is a description about this product that is
+                    listed on my fake Amazon site. It's pretty nice. You should
+                    buy it right meow.
+                  </div>
+                  <div class="controls">
+                    <button
+                      data-product-id="2"
+                      class="btn btn-primary add-to-cart"
+                    >
+                      Add to Cart
+                    </button>
+                    <button
+                      data-product-id="2"
+                      class="btn-link remove-from-cart"
+                      disabled
+                    >
+                      Remove [x]
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="product">
+                <div class="hero">
+                  <img
+                    alt="Product Title Image"
+                    src="https://placehold.co/165x115"
+                  />
+                </div>
+                <div>
+                  <div class="header-wrapper">
+                    <h3 class="name">Product Name #3</h3>
+                    <div class="price">$35.04</div>
+                  </div>
+                  <div class="description">
+                    This is a description about this product that is listed on
+                    my fake Amazon site. It's pretty nice. You should buy it
+                    right meow. This is a description about this product that is
+                    listed on my fake Amazon site. It's pretty nice. You should
+                    buy it right meow.
+                  </div>
+                  <div class="controls">
+                    <button
+                      data-product-id="3"
+                      class="btn btn-primary add-to-cart"
+                    >
+                      Add to Cart
+                    </button>
+                    <button
+                      data-product-id="3"
+                      class="btn-link remove-from-cart"
+                      disabled
+                    >
+                      Remove [x]
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+        <footer class="footer">
+          Amazon &copy; <span class="current-year"></span>
+        </footer>
+      </div>
+    </div>
+    <script src="scripts.js"></script>
+  </body>
+</html>
